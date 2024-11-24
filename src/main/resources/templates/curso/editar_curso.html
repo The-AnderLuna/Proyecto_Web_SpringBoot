@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Curso</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+<div class="container">
+    <div class="card shadow-sm p-4 mt-5">
+        <h1 class="text-center mb-4">Editar Curso</h1>
+
+        <!-- Mostrar mensaje de éxito o error -->
+        <div th:if="${message != null}">
+            <p class="alert alert-success" th:text="${message}"></p>
+        </div>
+        <div th:if="${error != null}">
+            <p class="alert alert-danger" th:text="${error}"></p>
+        </div>
+
+        <!-- Formulario para editar curso -->
+        <form th:action="@{/cursos/edit}" method="post">
+            <input type="hidden" name="id" th:value="${curso.id}">
+            <div class="form-group">
+                <label for="nombre">Nombre del Curso:</label>
+                <input type="text" id="nombre" name="nombre" class="form-control" th:value="${curso.nombre}" required>
+            </div>
+            <div class="form-group">
+                <label for="duracion">Duración (horas):</label>
+                <input type="number" id="duracion" name="duracion" class="form-control" th:value="${curso.duracion}" step="0.1" required>
+            </div>
+            <div class="form-group">
+                <label for="estudiantes">Número de Estudiantes:</label>
+                <input type="number" id="estudiantes" name="estudiantes" class="form-control" th:value="${curso.estudiantes}" required>
+            </div>
+            <div class="form-group">
+                <label for="fechaInicio">Fecha de Inicio:</label>
+                <input type="date" id="fechaInicio" name="fechaInicio" class="form-control" th:value="${curso.fechaInicio}" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Actualizar Curso</button>
+        </form>
+
+        <p class="text-center mt-3"><a th:href="@{/cursos}">Volver</a></p>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

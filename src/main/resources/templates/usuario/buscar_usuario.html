@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscar Usuario</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+<div class="container">
+    <div class="card shadow-sm p-4 mt-5">
+        <h1 class="text-center mb-4">Buscar Usuario por Email</h1>
+        <form th:action="@{/usuarios/search}" method="post" class="mb-3">
+            <div class="form-group">
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Buscar Usuario</button>
+        </form>
+
+        <div th:if="${usuario != null}">
+            <div>
+                <p><strong>ID:</strong> <span th:text="${usuario.id}"></span></p>
+                <p><strong>Nombre:</strong> <span th:text="${usuario.nombre}"></span></p>
+                <p><strong>Apellidos:</strong> <span th:text="${usuario.apellidos}"></span></p>
+                <p><strong>Email:</strong> <span th:text="${usuario.email}"></span></p>
+                <p><strong>Teléfono:</strong> <span th:text="${usuario.telefono}"></span></p>
+                <p><strong>Rol:</strong> <span th:text="${usuario.rol}"></span></p>
+                <p><strong>Estado:</strong> <span th:text="${usuario.estado}"></span></p>
+                <p><strong>Fecha de Registro:</strong> <span th:text="${usuario.fechaRegistro}"></span></p>
+            </div>
+        </div>
+
+        <p class="text-center mt-3"><a th:href="@{/usuarios}">Volver</a></p>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

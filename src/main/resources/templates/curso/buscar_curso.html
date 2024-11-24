@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscar Curso</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+<div class="container">
+    <div class="card shadow-sm p-4 mt-5">
+        <h1 class="text-center mb-4">Buscar Curso</h1>
+
+        <!-- Mostrar mensaje de error -->
+        <div th:if="${error != null}">
+            <p class="alert alert-danger" th:text="${error}"></p>
+        </div>
+
+        <!-- Formulario para buscar curso -->
+        <form th:action="@{/cursos/search}" method="post" class="mb-3">
+            <div class="form-group">
+                <label for="cursoId">ID del Curso:</label>
+                <input type="text" id="cursoId" name="cursoId" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Buscar Curso</button>
+        </form>
+
+        <div th:if="${curso != null}">
+            <h2>Detalle del Curso</h2>
+            <p><strong>ID:</strong> <span th:text="${curso.id}"></span></p>
+            <p><strong>Nombre:</strong> <span th:text="${curso.nombre}"></span></p>
+            <p><strong>Duración:</strong> <span th:text="${curso.duracion}"></span> horas</p>
+            <p><strong>Número de Estudiantes:</strong> <span th:text="${curso.estudiantes}"></span></p>
+            <p><strong>Fecha de Inicio:</strong> <span th:text="${curso.fechaInicio}"></span></p>
+            <p><strong>Usuario:</strong> <span th:text="${curso.usuario.nombre}"></span></p>
+        </div>
+
+        <p class="text-center mt-3"><a th:href="@{/cursos}">Volver</a></p>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

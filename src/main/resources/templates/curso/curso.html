@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Cursos</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+<div class="container">
+  <div class="card shadow-sm p-4 mt-5">
+    <h1 class="text-center mb-4">Gestión de Cursos</h1>
+
+    <!-- Botón para Crear Curso -->
+    <form th:action="@{/cursos/create}" method="get" class="mb-3">
+      <button type="submit" class="btn btn-primary btn-block">Crear Curso</button>
+    </form>
+
+    <!-- Botón para Buscar Curso -->
+    <form th:action="@{/cursos/search}" method="get" class="mb-3">
+      <button type="submit" class="btn btn-secondary btn-block">Buscar Curso</button>
+    </form>
+
+    <!-- Botón para Editar Curso -->
+    <form th:action="@{/cursos/edit}" method="get" class="mb-3">
+      <button type="submit" class="btn btn-warning btn-block">Editar Curso</button>
+    </form>
+
+    <!-- Botón para Eliminar Curso -->
+    <form th:action="@{/cursos/delete}" method="get" class="mb-3">
+      <button type="submit" class="btn btn-danger btn-block">Eliminar Curso</button>
+    </form>
+
+    <!-- Botón para Listar Cursos -->
+    <form th:action="@{/cursos}" method="get" class="mb-3">
+      <button type="submit" class="btn btn-info btn-block">Listar Cursos</button>
+    </form>
+
+    <p class="text-center"><a th:href="@{/home}">Volver</a></p>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
